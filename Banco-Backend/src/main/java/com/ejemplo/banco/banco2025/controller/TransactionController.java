@@ -45,7 +45,9 @@ public class TransactionController {
             TransactionDTO savedTransaction = transactionService.transferMoney(transactionDTO);
             return ResponseEntity.ok(savedTransaction);
         } catch (IllegalArgumentException ex) {
-            return ResponseEntity.badRequest().body(null);
+            TransactionDTO errorResponse = new TransactionDTO();
+            errorResponse.setErrorMessage(ex.getMessage()); // necesitas este campo en el DTO
+            return ResponseEntity.badRequest().body(errorResponse);
         }
     }
 }

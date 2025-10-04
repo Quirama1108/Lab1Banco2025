@@ -11,6 +11,7 @@ public class TransactionDTO {
     private String receiverAccountNumber;
     private Double amount;
     private LocalDateTime transactionDate;
+    private String errorMensaje;
 
     public TransactionDTO() {
     }
@@ -61,5 +62,13 @@ public class TransactionDTO {
 
     public void setTransactionDate(LocalDateTime transactionDate) {
         this.transactionDate = transactionDate;
+    }
+
+    public void setErrorMessage(String message) {
+        this.errorMensaje = message;
+    }
+
+    public String getErrorMessage() {
+        return errorMensaje;
     }
 }
